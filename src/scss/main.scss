@@ -1,0 +1,76 @@
+@import './variables.scss';
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: wrap) {
+  align-items: $align;
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+}
+
+@mixin font-size($size: 1rem) {
+  font-size: $size;
+  line-height: calc($size * 1.5);
+}
+
+@mixin media($breakpoint) {
+  @if $breakpoint == phone-s {
+    @media only screen and (min-width: 280px) {
+      @content;
+    }
+  } @else if $breakpoint == phone {
+    @media only screen and (min-width: 375px) {
+      @content;
+    }
+  } @else if $breakpoint == phone-l {
+    @media only screen and (min-width: 500px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-s {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-m {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-l {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-xl {
+    @media only screen and (min-width: 1780px) {
+      @content;
+    }
+  } @else if $breakpoint == mobile-only {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-p-only {
+    @media only screen and (min-width: 768px) and (max-width: 992px) and (orientation: portrait) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-l-only {
+    @media only screen and (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-s-only {
+    @media only screen and (min-width: 768px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-m-only {
+    @media only screen and (min-width: 1200px) and (max-width: 1480px) {
+      @content;
+    }
+  }
+}
